@@ -21,13 +21,20 @@ jobs:
       - name: Docker
         run: docker-compose up -d
         
-      - name: PRISMA intergrate
+      - name: PRISMA
         run: |  
           yarn prisma generate
           yarn prisma migrate dev
-          
-      - name: API 
-        run: yarn start api
-        
-      - name: CLIENT
-        run: yarn start client
+
+  API:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - run: yarn start api
+      
+  TEST:
+    runs-on: ubuntu-latest
+    if: jobs.API.steps[0].timeout-minutes > 1
+    
+    steps:
+      - run: yarn start client
