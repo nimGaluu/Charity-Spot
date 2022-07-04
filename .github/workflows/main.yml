@@ -20,7 +20,7 @@ jobs:
         
       - name: PRISMA intergrate
         run: |  
-          yarn prisma generate,
+          yarn prisma generate
           
       - name: API
         run: yarn start api
