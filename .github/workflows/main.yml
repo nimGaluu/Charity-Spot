@@ -33,7 +33,9 @@ jobs:
     needs: build
     steps:
       - uses: actions/checkout@v3
-      - run: yarn start api
+      
+      - name: Start API
+        run: yarn start api
       
   TEST:
     runs-on: ubuntu-latest
