@@ -34,7 +34,6 @@ jobs:
       
   TEST:
     runs-on: ubuntu-latest
-    if: ${{ ../API.steps[0].duration > 1}}
-    
+    needs: [build, API]
     steps:
       - run: yarn start client
