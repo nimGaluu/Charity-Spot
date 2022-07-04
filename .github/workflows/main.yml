@@ -30,15 +30,11 @@ jobs:
 
   API:
     runs-on: ubuntu-latest
+    
     needs: build
+    
     steps:
       - uses: actions/checkout@v3
       
       - name: Start API
         run: yarn start api
-      
-  TEST:
-    runs-on: ubuntu-latest
-    needs: [build, API]
-    steps:
-      - run: yarn start client
