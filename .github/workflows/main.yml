@@ -18,12 +18,10 @@ jobs:
       - name: Dependency Resolution
         run: yarn install
         
+      - name: Docker
+        run: docker-compose up -d
+        
       - name: PRISMA intergrate
         run: |  
           yarn prisma generate
-          
-      - name: API
-        run: yarn start api
-      
-      - name: Client
-        run: yarn start client
+          yarn prisma migrate dev
