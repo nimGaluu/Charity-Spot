@@ -20,6 +20,8 @@ jobs:
         
       - name: PRISMA intergrate
         run: |
+          yarn add --dev prisma@latest,
+          yarn add @prisma/client@latest   
           yarn prisma migrate dev,
           yarn prisma generate
           
