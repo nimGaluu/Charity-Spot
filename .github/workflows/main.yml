@@ -25,11 +25,14 @@ jobs:
         run: |  
           yarn prisma generate
           yarn prisma migrate dev
+          
+      - name: API
 
   API:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - uses: actions/checkout@v3
       - run: yarn start api
       
   TEST:
