@@ -25,3 +25,9 @@ jobs:
         run: |  
           yarn prisma generate
           yarn prisma migrate dev
+          
+      - name: API 
+        run: yarn start api
+        
+      - name: CLIENT
+        run: yarn start client
