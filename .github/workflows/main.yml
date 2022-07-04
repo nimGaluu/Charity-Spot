@@ -34,7 +34,7 @@ jobs:
       
   TEST:
     runs-on: ubuntu-latest
-    if: jobs.API.steps[0].timeout-minutes > 1
+    if: ${{ jobs.API.steps[0].duration > 1}}
     
     steps:
       - run: yarn start client
